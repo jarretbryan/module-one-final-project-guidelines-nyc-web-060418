@@ -19,7 +19,7 @@ end
 
 def create_account_prompt
   prompt = TTY::Prompt.new
-  prompt.ask("Let's get you started. What is your name?")
+  prompt.ask("What is your name?")
 end
 
 def owner_menu_prompt
@@ -27,8 +27,9 @@ def owner_menu_prompt
   prompt.select('What would you like to do?') do |menu|
     menu.choice "View my dogs", 1
     menu.choice "Add a new dog", 2
-    menu.choice "View previous walkers", 3
-    menu.choice "I'm a dog walker!", 4
+    menu.choice "View my walkers", 3
+    menu.choice "Find a walker", 4
+    menu.choice "I'm a dog walker!", 5
   end
 end
 
@@ -48,4 +49,9 @@ def dog_size_prompt
   prompt = TTY::Prompt.new
   prompt.select("How big is your dog?", %w(Small Medium Large))
   #error message raise?
+end
+
+def username_prompt
+  prompt = TTY::Prompt.new
+  prompt.ask("Please Enter a username:")
 end
