@@ -9,7 +9,9 @@ class Owner < ActiveRecord::Base
   end
 
   def view_dogs
-    self.dogs.map do |dog|
+    Dog.all.select do |dog|
+      dog.owner_id == self.id
+    end.map do |dog|
       dog.name
     end
   end

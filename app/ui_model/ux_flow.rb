@@ -16,6 +16,7 @@ def runner
   loop do
     case owner_menu_prompt
     when 1
+      #binding.pry
       p acct_owner.view_dogs.join(", ")
     when 2
       dog_name = dog_name_prompt
