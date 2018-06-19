@@ -2,14 +2,16 @@ class Owner < ActiveRecord::Base
   has_many :dogs
   has_many :walks, through: :dogs
   has_many :walkers, through: :walks
-  validates :username presence: true
+  validates :username, presence: true
 
   def add_dog(name:, breed:, size:)
     Dog.create(name: name, breed: breed, size: size, owner_id: self.id)
   end
 
   def view_dogs
-    self.dogs.map do |dog|
+    Dog.all.select do |dog|
+      dog.owner_id == self.id
+    end.map do |dog|
       dog.name
     end
   end
@@ -25,4 +27,9 @@ class Owner < ActiveRecord::Base
   def look_for_walkers
     Walker.take(5)
   end
+
+  def im_a_dog_walker
+    Walker.find_or_create_by(username: self.username, name: self.name)
+  end
+
 end
