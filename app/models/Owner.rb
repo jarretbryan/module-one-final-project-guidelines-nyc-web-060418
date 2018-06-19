@@ -25,7 +25,9 @@ class Owner < ActiveRecord::Base
   end
 
   def look_for_walkers
-    Walker.take(5)
+    Walker.take(5).each_with_index.map do |walker, index|
+      "#{index+1}. #{walker.name} - $#{walker.small_dog_rate} - $#{walker.small_dog_rate} - $#{walker.small_dog_rate}"
+    end
   end
 
   def im_a_dog_walker
