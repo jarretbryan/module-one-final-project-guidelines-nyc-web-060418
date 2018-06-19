@@ -2,7 +2,7 @@ class Owner < ActiveRecord::Base
   has_many :dogs
   has_many :walks, through: :dogs
   has_many :walkers, through: :walks
-  validates :username presence: true
+  # validates :username presence: true
 
   def add_dog(name:, breed:, size:)
     Dog.create(name: name, breed: breed, size: size, owner_id: self.id)
