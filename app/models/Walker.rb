@@ -12,5 +12,4 @@ class Walker < ActiveRecord::Base
       dog.owner
     end
   end
-
 end

@@ -1,3 +1,5 @@
+require 'date'
+
 def is_username_valid?(username)
   if Owner.find_by(username: username)
     puts "Username already taken, please choose another username"
@@ -9,11 +11,11 @@ def is_username_valid?(username)
   end
 end
 
-def is_name_valid?(name)
-  if name == nil
+def is_this_blank?(item)
+  if item == nil
     puts "Name cannot be blank"
   else
-    name
+    item
   end
 end
 
@@ -23,4 +25,13 @@ def does_user_exist?(username)
   else
     username
   end
+end
+
+def date_valid?(date)
+  format = '%m/%d/%Y'
+  DateTime.strptime(date, format)
+  Date.strptime(date, "%m/%d/%Y")
+rescue ArgumentError
+  puts "Please enter a valid date MM/DD/YY"
+  date = nil
 end

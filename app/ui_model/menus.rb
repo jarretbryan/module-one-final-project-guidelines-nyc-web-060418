@@ -1,3 +1,4 @@
+require 'date'
 
 def main_menu(acct_owner)
   loop do
@@ -8,8 +9,8 @@ def main_menu(acct_owner)
         p "#{dog.name} - a #{dog.size} #{dog.breed} and a good doggo!"
       end.join(", ")
     when 2
-      dog_name = dog_name_prompt
-      breed = dog_breed_prompt
+      dog_name = is_this_blank?(dog_name_prompt)
+      breed = is_this_blank?(dog_breed_prompt)
       size = dog_size_prompt
       dog = acct_owner.add_dog(name: dog_name, breed: breed, size: size)
       puts dog.name
@@ -19,8 +20,12 @@ def main_menu(acct_owner)
       selected_walker = walker_view_prompt(acct_owner.look_for_walkers)
       selected_dog = choose_dog_prompt(acct_owner.select_dog_for_walk(selected_walker))
       if book_walk_prompt == "Yes"
-        selected_dog.book_a_walk(selected_walker)
-        puts "#{selected_dog.name} went for a walk with #{selected_walker.name}!"
+        date = nil
+        while date == nil
+          date = date_valid?(book_walk_date_prompt)
+        end
+        selected_dog.book_a_walk(selected_walker, date)
+        puts "Booked walk for #{selected_dog.name} with #{selected_walker.name} on #{date.strftime("%B %d, %Y")}!"
       else
         main_menu(acct_owner)
       end

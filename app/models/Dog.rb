@@ -13,8 +13,8 @@ class Dog < ActiveRecord::Base
     end
   end
 
-  def book_a_walk(walker)
-    Walk.create(dog_id: self.id, walker_id: walker.id)
+  def book_a_walk(walker, date)
+    Walk.create(dog_id: self.id, walker_id: walker.id, walk_time: date)
   end
 
 end

@@ -12,7 +12,7 @@ def runner
       username = is_username_valid?(username_prompt)
     end
     while name == nil
-      name = is_name_valid?(create_account_prompt)
+      name = is_this_blank?(create_account_prompt)
     end
     acct_owner = Owner.create(name: name, username: username)
   else

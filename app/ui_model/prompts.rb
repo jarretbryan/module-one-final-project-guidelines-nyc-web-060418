@@ -102,3 +102,8 @@ def book_walk_prompt
   prompt = TTY::Prompt.new
   prompt.select("Do you want to book this walk?", %w(Yes No))
 end
+
+def book_walk_date_prompt
+  prompt = TTY::Prompt.new
+  prompt.ask("When do you want to book this walk? Please enter date MM/DD/YYYY:")
+end
