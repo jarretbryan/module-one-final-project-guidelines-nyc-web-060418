@@ -13,10 +13,8 @@ class Dog < ActiveRecord::Base
     end
   end
 
-
   def book_a_walk(walker)
     Walk.create(dog_id: self.id, walker_id: walker.id)
   end
-
 
 end

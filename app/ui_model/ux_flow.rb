@@ -7,7 +7,7 @@ def runner
   if new_or_old_prompt == "Yes"
     username = username_prompt
     name = create_account_prompt
-    acct_owner = Owner.create(name: name, username: username)
+    acct_owner = Owner.create!(name: name, username: username)
   else
     username = username_prompt
     acct_owner = Owner.find_by(username: username)
