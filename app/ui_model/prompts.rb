@@ -56,3 +56,26 @@ def username_prompt
   prompt = TTY::Prompt.new
   prompt.ask("Please Enter a username:")
 end
+
+def walker_menu_prompt
+  prompt = TTY::Prompt.new
+  prompt.select('What would you like to do?') do |menu|
+    menu.choice "View my rates", 1
+    menu.choice "Change my rate for small dogs", 2
+    menu.choice "Change my rate for medium dogs", 3
+    menu.choice "Change my rate for large dogs", 4
+    menu.choice "See which dogs I've Walked!", 5
+    menu.choice "See who I've worked for", 6
+    menu.choice "Go Back", 7
+  end
+end
+
+def rate_change_prompt
+  prompt = TTY::Prompt.new
+  prompt.ask("What would you like the new rate to be?")
+end
+
+def walker_view_prompt(walk_arr)
+  prompt = TTY::Prompt.new
+  prompt.select('Choose a walker!', walk_arr)
+end
