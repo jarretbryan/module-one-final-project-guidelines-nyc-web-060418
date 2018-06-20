@@ -39,10 +39,10 @@ class Owner < ActiveRecord::Base
     # prompt.select('Choose a walker:', choices)
   end
 
-  def select_dog_for_walk
+  def select_dog_for_walk(walker_instance)
     choices = self.view_dog_instances.each_with_index.map do |dog, index|
-      {name: "#{index+1}. #{dog.name}", value: dog}
+      {name: "#{index+1}. #{dog.name.ljust(15)} #{dog.size.ljust(10)} $#{dog.walk_cost(walker_instance)}", value: dog}
     end
   end
-  
+
 end

@@ -17,7 +17,7 @@ def main_menu(acct_owner)
       p acct_owner.view_my_walkers
     when 4
       selected_walker = walker_view_prompt(acct_owner.look_for_walkers)
-      selected_dog = choose_dog_prompt(acct_owner.select_dog_for_walk)
+      selected_dog = choose_dog_prompt(acct_owner.select_dog_for_walk(selected_walker))
     when 5
       p "congrats!"
       break
@@ -65,5 +65,5 @@ def runner
   #owner_menu_prompt
   main_menu(acct_owner)
   walker_menu(acct_owner)
-  
+
 end
