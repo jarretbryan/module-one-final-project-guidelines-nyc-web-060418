@@ -26,6 +26,9 @@ def main_menu(acct_owner)
       p "congrats!"
       break
     when 6
+      p "Name: #{acct_owner.name}"
+      p "Username: #{acct_owner.username}"    
+    when 7
       p "Goodbye!"
       exit
     end
