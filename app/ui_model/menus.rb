@@ -16,6 +16,12 @@ def main_menu(acct_owner)
     when 4
       selected_walker = walker_view_prompt(acct_owner.look_for_walkers)
       selected_dog = choose_dog_prompt(acct_owner.select_dog_for_walk(selected_walker))
+      if book_walk_prompt == "Yes"
+        selected_dog.book_a_walk(selected_walker)
+        puts "#{selected_dog.name} went for a walk with #{selected_walker.name}!"
+      else
+        main_menu(acct_owner)
+      end
     when 5
       p "congrats!"
       break

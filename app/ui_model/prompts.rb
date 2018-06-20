@@ -98,3 +98,8 @@ def choose_dog_prompt(dog_arr)
   prompt = TTY::Prompt.new
   prompt.select('Choose a dog!', dog_arr)
 end
+
+def book_walk_prompt
+  prompt = TTY::Prompt.new
+  prompt.select("Do you want to book this walk?", %w(Yes No))
+end
