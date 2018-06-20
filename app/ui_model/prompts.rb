@@ -1,4 +1,3 @@
-require_relative './validation'
 require 'tty-prompt'
 
 #prompt = TTY::Prompt.new
