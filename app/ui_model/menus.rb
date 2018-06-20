@@ -4,7 +4,9 @@ def main_menu(acct_owner)
     case owner_menu_prompt
     when 1
       #binding.pry
-      p acct_owner.view_dogs.join(", ")
+      acct_owner.view_dog_instances.map do |dog|
+        p "#{dog.name} - a #{dog.size} #{dog.breed} and a good doggo!"
+      end.join(", ")
     when 2
       dog_name = dog_name_prompt
       breed = dog_breed_prompt
@@ -12,7 +14,7 @@ def main_menu(acct_owner)
       dog = acct_owner.add_dog(name: dog_name, breed: breed, size: size)
       puts dog.name
     when 3
-      p acct_owner.view_my_walkers
+      p acct_owner.view_my_walkers.join(", ")
     when 4
       selected_walker = walker_view_prompt(acct_owner.look_for_walkers)
       selected_dog = choose_dog_prompt(acct_owner.select_dog_for_walk(selected_walker))
@@ -27,7 +29,7 @@ def main_menu(acct_owner)
       break
     when 6
       p "Name: #{acct_owner.name}"
-      p "Username: #{acct_owner.username}"    
+      p "Username: #{acct_owner.username}"
     when 7
       p "Goodbye!"
       exit
