@@ -2,6 +2,7 @@ class Owner < ActiveRecord::Base
   has_many :dogs
   has_many :walks, through: :dogs
   has_many :walkers, through: :walks
+
   # validates :username presence: true
 
   def add_dog(name:, breed:, size:)
@@ -25,6 +26,13 @@ class Owner < ActiveRecord::Base
   end
 
   def look_for_walkers
-    Walker.take(5)
+    Walker.take(5).each_with_index.map do |walker, index|
+      puts "#{index+1}. #{walker.name.ljust(20)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)}"
+    end
   end
+
+  def im_a_dog_walker
+    Walker.find_or_create_by(username: self.username, name: self.name)
+  end
+
 end

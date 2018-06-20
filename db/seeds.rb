@@ -1,16 +1,16 @@
 require 'faker'
 require_all 'app'
 
-owner1 = Owner.create(name: Faker::Name.name)
-owner2 = Owner.create(name: Faker::Name.name)
-owner3 = Owner.create(name: Faker::Name.name)
-owner4 = Owner.create(name: Faker::Name.name)
-owner5 = Owner.create(name: Faker::Name.name)
-owner6 = Owner.create(name: Faker::Name.name)
-owner7 = Owner.create(name: Faker::Name.name)
-owner8 = Owner.create(name: Faker::Name.name)
-owner9 = Owner.create(name: Faker::Name.name)
-owner10 = Owner.create(name: Faker::Name.name)
+owner1 = Owner.create(name: Faker::Name.name, username: Faker::Name.unique.name)
+owner2 = Owner.create(name: Faker::Name.name, username: Faker::Name.unique.name)
+owner3 = Owner.create(name: Faker::Name.name, username: Faker::Name.unique.name)
+owner4 = Owner.create(name: Faker::Name.name, username: Faker::Name.unique.name)
+owner5 = Owner.create(name: Faker::Name.name, username: Faker::Name.unique.name)
+owner6 = Owner.create(name: Faker::Name.name, username: Faker::Name.unique.name)
+owner7 = Owner.create(name: Faker::Name.name, username: Faker::Name.unique.name)
+owner8 = Owner.create(name: Faker::Name.name, username: Faker::Name.unique.name)
+owner9 = Owner.create(name: Faker::Name.name, username: Faker::Name.unique.name)
+owner10 = Owner.create(name: Faker::Name.name, username: Faker::Name.unique.name)
 
 dog1 = Dog.create(name: Faker::Dog.name)
 dog2 = Dog.create(name: Faker::Dog.name)
