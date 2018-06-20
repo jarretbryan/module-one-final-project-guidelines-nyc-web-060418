@@ -15,7 +15,7 @@ class Walker < ActiveRecord::Base
 
   def walks_with_ratings
     self.walks.select do |walk|
-      walk.rating != nil
+      walk.rating != nil && walk.rating != 0
     end
   end
 
@@ -31,9 +31,13 @@ class Walker < ActiveRecord::Base
 
   def rating_average
     if self.rating == nil
+      self.rating = 5
       "N/A"
     else
-    ((self.sum_ratings)/(self.list_of_ratings.length).to_f).round(2)
+    avg = ((self.sum_ratings)/(self.list_of_ratings.length).to_f).round(2)
+    #binding.pry
+    self.update(rating: avg)
+    avg
     end
   end
 

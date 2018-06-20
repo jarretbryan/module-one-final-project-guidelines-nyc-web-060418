@@ -106,11 +106,11 @@ end
 def walk_rating_prompt
   prompt = TTY::Prompt.new
   prompt.select('How would you rate this walk?') do |menu|
-    menu.choice "★★★★★", 5
-    menu.choice "★★★★", 4
-    menu.choice "★★★", 3
-    menu.choice "★★", 2
-    menu.choice "★", 1
+    menu.choice "★ ★ ★ ★ ★ ", 5
+    menu.choice "★ ★ ★ ★ ", 4
+    menu.choice "★ ★ ★ ", 3
+    menu.choice "★ ★ ", 2
+    menu.choice "★ ", 1
     menu.choice "Not now", 6
   end
 end

@@ -24,6 +24,7 @@ def main_menu(acct_owner)
         if rating < 6
           #binding.pry
           walk.update(rating: rating)
+          selected_walker.rating_average
         end
       else
         main_menu(acct_owner)
