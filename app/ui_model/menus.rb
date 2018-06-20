@@ -41,15 +41,16 @@ def walker_menu(acct_walker)
   loop do
     case walker_menu_prompt
     when 1
-      # p Walker.small_dog_rate
-      # p Walker.medium_dog_rate
-      # p Walker.big_dog_rate
+      p "$#{acct_walker.small_dog_rate} for small dogs."
+      p "$#{acct_walker.medium_dog_rate} for medium dogs."
+      p "$#{acct_walker.large_dog_rate} for large dogs."
     when 2
-    #  Walker.small_dog_rate = rate_change_prompt
+      #acct_walker.small_dog_rate = rate_change_prompt
+      acct_walker.update(small_dog_rate: rate_change_prompt)
     when 3
-      #Walker.medium_dog_rate = rate_change_prompt
+      acct_walker.update(medium_dog_rate: rate_change_prompt)
     when 4
-      #Walker.big_dog_rate = rate_change_prompt
+      acct_walker.update(large_dog_rate: rate_change_prompt)
     when 5
       #Walker.dogs
     when 6
