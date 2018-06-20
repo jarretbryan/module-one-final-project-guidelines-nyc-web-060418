@@ -66,7 +66,7 @@ def walker_menu_prompt
     menu.choice "Change my rate for large dogs", 4
     menu.choice "See which dogs I've Walked!", 5
     menu.choice "See who I've worked for", 6
-    menu.choice "Logout", 7
+    menu.choice "Go Back", 7
   end
 end
 
