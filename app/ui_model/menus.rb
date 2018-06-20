@@ -25,6 +25,7 @@ def main_menu(acct_owner)
           #binding.pry
           walk.update(rating: rating)
           selected_walker.rating_average
+          puts "Thanks for walking #{selected_dog.name} with Woof Walker!"
         end
       else
         main_menu(acct_owner)

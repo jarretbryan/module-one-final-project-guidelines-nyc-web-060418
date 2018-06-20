@@ -35,7 +35,6 @@ class Walker < ActiveRecord::Base
       "N/A"
     else
     avg = ((self.sum_ratings)/(self.list_of_ratings.length).to_f).round(2)
-    #binding.pry
     self.update(rating: avg)
     avg
     end
