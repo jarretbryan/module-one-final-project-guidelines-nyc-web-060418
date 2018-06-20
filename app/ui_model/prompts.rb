@@ -66,7 +66,7 @@ def walker_menu_prompt
     menu.choice "Change my rate for large dogs", 4
     menu.choice "See which dogs I've Walked!", 5
     menu.choice "See who I've worked for", 6
-    menu.choice "Go Back", 7
+    menu.choice "Logout", 7
   end
 end
 
@@ -78,4 +78,9 @@ end
 def walker_view_prompt(walk_arr)
   prompt = TTY::Prompt.new
   prompt.select('Choose a walker!', walk_arr)
+end
+
+def choose_dog_prompt(dog_arr)
+  prompt = TTY::Prompt.new
+  prompt.select('Choose a dog!', dog_arr)
 end

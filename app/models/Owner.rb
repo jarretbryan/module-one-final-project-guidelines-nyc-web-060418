@@ -8,13 +8,19 @@ class Owner < ActiveRecord::Base
     Dog.create(name: name, breed: breed, size: size, owner_id: self.id)
   end
 
-  def view_dogs
+  def view_dog_instances
     Dog.all.select do |dog|
       dog.owner_id == self.id
-    end.map do |dog|
+    end
+  end
+
+  def view_dogs
+    view_dog_instances.map do |dog|
       dog.name
     end
   end
+
+
 
   def view_my_walkers
     self.dogs.map do |dog|
@@ -32,4 +38,11 @@ class Owner < ActiveRecord::Base
     # prompt = TTY::Prompt.new
     # prompt.select('Choose a walker:', choices)
   end
+
+  def select_dog_for_walk
+    choices = self.view_dog_instances.each_with_index.map do |dog, index|
+      {name: "#{index+1}. #{dog.name}", value: dog}
+    end
+  end
+  
 end
