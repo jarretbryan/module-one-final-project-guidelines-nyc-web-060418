@@ -4,7 +4,9 @@ def main_menu(acct_owner)
     case owner_menu_prompt
     when 1
       #binding.pry
-      p acct_owner.view_dogs.join(", ")
+      acct_owner.view_dog_instances.map do |dog|
+        p "#{dog.name} - a #{dog.size} #{dog.breed} and a good doggo!"
+      end.join(", ")
     when 2
       dog_name = dog_name_prompt
       breed = dog_breed_prompt
@@ -12,7 +14,7 @@ def main_menu(acct_owner)
       dog = acct_owner.add_dog(name: dog_name, breed: breed, size: size)
       puts dog.name
     when 3
-      p acct_owner.view_my_walkers
+      p acct_owner.view_my_walkers.join(", ")
     when 4
       selected_walker = walker_view_prompt(acct_owner.look_for_walkers)
       selected_dog = choose_dog_prompt(acct_owner.select_dog_for_walk(selected_walker))
@@ -23,34 +25,43 @@ def main_menu(acct_owner)
         main_menu(acct_owner)
       end
     when 5
-      p "congrats!"
+      acct_owner.become_walker
       break
     when 6
+      p "Name: #{acct_owner.name}"
+      p "Username: #{acct_owner.username}"
+    when 7
       p "Goodbye!"
       exit
     end
   end
 end
 
-def walker_menu(acct_owner)
+def walker_menu(acct_walker)
   loop do
     case walker_menu_prompt
     when 1
-      # p Walker.small_dog_rate
-      # p Walker.medium_dog_rate
-      # p Walker.big_dog_rate
+      p "$#{acct_walker.small_dog_rate} for small dogs."
+      p "$#{acct_walker.medium_dog_rate} for medium dogs."
+      p "$#{acct_walker.large_dog_rate} for large dogs."
     when 2
-    #  Walker.small_dog_rate = rate_change_prompt
+      #acct_walker.small_dog_rate = rate_change_prompt
+      acct_walker.update(small_dog_rate: rate_change_prompt)
     when 3
-      #Walker.medium_dog_rate = rate_change_prompt
+      acct_walker.update(medium_dog_rate: rate_change_prompt)
     when 4
-      #Walker.big_dog_rate = rate_change_prompt
+      acct_walker.update(large_dog_rate: rate_change_prompt)
     when 5
-      #Walker.dogs
+        acct_walker.indv_dogs.each do |dog|
+          p "#{dog.name}, a #{dog.size} #{dog.breed}."
+        end
     when 6
-      #Walker.owners
+      acct_walker.indv_owners.uniq.each do|owner|
+        #binding.pry
+        p "#{owner.name}, a stand up citizen."
+      end
     when 7
-      main_menu(acct_owner)
+      main_menu(acct_walker.owner)
     end
   end
 end

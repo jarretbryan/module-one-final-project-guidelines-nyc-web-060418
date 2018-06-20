@@ -21,15 +21,17 @@ class Owner < ActiveRecord::Base
   end
 
   def view_my_walkers
-    view_dog_instances.walkers.map do |dog|
-        dog.name
+    self.view_dog_instances.map do |dog|
+      dog.walkers.map do |dogg|
+        dogg.name
+      end
     end.flatten.uniq
   end
 
   def look_for_walkers
-    walker_array = Walker.take(5)
+    walker_array = Walker.all.sample(5)
     choices = walker_array.each_with_index.map do |walker, index|
-      {name: "#{index+1}. #{walker.name.ljust(30)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.medium_dog_rate.to_s.ljust(5)} $#{walker.large_dog_rate.to_s.ljust(5)}", value: walker}
+      {name: "#{index+1}. #{walker.name.ljust(30)} Rates - S: $#{walker.small_dog_rate.to_s.ljust(5)} M: $#{walker.medium_dog_rate.to_s.ljust(5)} L: $#{walker.large_dog_rate.to_s.ljust(5)}", value: walker}
     end
   end
 
@@ -42,4 +44,5 @@ class Owner < ActiveRecord::Base
   def become_walker
     Walker.find_or_create_by(name: self.name, owner_id: self.id)
   end
+
 end

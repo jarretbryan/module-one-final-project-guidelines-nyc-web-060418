@@ -1,7 +1,5 @@
 require 'tty-prompt'
 
-#prompt = TTY::Prompt.new
-
 def welcome
   puts <<-WELCOME
   WELCOME TO
@@ -44,7 +42,8 @@ def owner_menu_prompt
     menu.choice "View my walkers", 3
     menu.choice "Find a walker", 4
     menu.choice "I'm a dog walker!", 5
-    menu.choice "Logout", 6
+    menu.choice "View my Personal Info", 6
+    menu.choice "Logout", 7
   end
 end
 
