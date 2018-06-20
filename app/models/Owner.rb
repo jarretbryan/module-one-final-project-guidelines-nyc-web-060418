@@ -26,12 +26,10 @@ class Owner < ActiveRecord::Base
 
   def look_for_walkers
     walker_array = Walker.take(5)
-    walker_array.each_with_index.map do |walker, index|
-      # puts "#{index+1}. #{walker.name.ljust(20)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)}"
+    choices = walker_array.each_with_index.map do |walker, index|
+      {name: "#{index+1}. #{walker.name.ljust(30)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)}", value: walker}
     end
-    #binding.pry
-    walker_array.map do |walker|
-      "#{walker.name} S: $#{walker.small_dog_rate.to_s} M: $#{walker.small_dog_rate.to_s} L: $#{walker.small_dog_rate.to_s}"
-    end
+    # prompt = TTY::Prompt.new
+    # prompt.select('Choose a walker:', choices)
   end
 end
