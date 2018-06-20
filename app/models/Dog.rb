@@ -4,6 +4,16 @@ class Dog < ActiveRecord::Base
   belongs_to :owner
 
   def book_a_walk(walker)
-    Walk.create()
+    Walk.create(dog_id: self.id, walker_id: walker.id)
+  end
+
+  def walk_cost(walker_instance)
+    if self.size == "Small"
+      walker_instance.small_dog_rate
+    elsif self.size == "Medium"
+      walker_instance.medium_dog_rate
+    else
+      walker_instance.large_dog_rate
+    end
   end
 end

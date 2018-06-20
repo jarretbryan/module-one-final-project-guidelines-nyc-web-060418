@@ -23,7 +23,7 @@ class Owner < ActiveRecord::Base
 
   def select_dog_for_walk(walker_instance)
     choices = self.view_dog_instances.each_with_index.map do |dog, index|
-      {name: "#{index+1}. #{dog.name.ljust(30)} #{dog.size.ljust(10)} #{}", value: dog}
+      {name: "#{index+1}. #{dog.name.ljust(30)} #{dog.size.ljust(10)} #{dog.walk_cost(walker_instance)}", value: dog}
     end
     prompt = TTY::Prompt.new
     prompt.select('Which dog?', choices)
