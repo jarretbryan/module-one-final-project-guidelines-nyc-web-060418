@@ -20,10 +20,8 @@ class Owner < ActiveRecord::Base
     end
   end
 
-
-
   def view_my_walkers
-    self.dogs.map do |dog|
+    self.view_dog_instances.map do |dog|
       dog.walkers.map do |dogg|
         dogg.name
       end
