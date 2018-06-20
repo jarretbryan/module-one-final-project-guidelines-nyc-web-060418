@@ -73,7 +73,7 @@ end
 def walker_menu_prompt
   prompt = TTY::Prompt.new
   prompt.select('What would you like to do?') do |menu|
-    menu.choice "View my rates", 1
+    menu.choice "View my Walker Information", 1
     menu.choice "Change my rate for small dogs", 2
     menu.choice "Change my rate for medium dogs", 3
     menu.choice "Change my rate for large dogs", 4
@@ -101,4 +101,16 @@ end
 def book_walk_prompt
   prompt = TTY::Prompt.new
   prompt.select("Do you want to book this walk?", %w(Yes No))
+end
+
+def walk_rating_prompt
+  prompt = TTY::Prompt.new
+  prompt.select('How would you rate this walk?') do |menu|
+    menu.choice "★★★★★", 5
+    menu.choice "★★★★", 4
+    menu.choice "★★★", 3
+    menu.choice "★★", 2
+    menu.choice "★", 1
+    menu.choice "Not now", 6
+  end
 end

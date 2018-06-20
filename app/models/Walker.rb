@@ -13,4 +13,25 @@ class Walker < ActiveRecord::Base
     end
   end
 
+  def walks_with_ratings
+    self.walks.select do |walk|
+      walk.rating != nil
+    end
+  end
+
+  def list_of_ratings
+    self.walks_with_ratings.map do |walk|
+      walk.rating
+    end
+  end
+
+  def sum_ratings
+    self.list_of_ratings.inject {|x,y| x+y}
+  end
+
+  def rating_average
+    (self.sum_ratings)/(self.list_of_ratings.length).to_f
+  end
+
+
 end
