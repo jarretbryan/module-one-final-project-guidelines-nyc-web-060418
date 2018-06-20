@@ -52,7 +52,9 @@ def walker_menu(acct_walker)
     when 4
       acct_walker.update(large_dog_rate: rate_change_prompt)
     when 5
-      #Walker.dogs
+        acct_walker.dogs.each do|dog|
+          p "#{dog.name} a #{dog.size} #{dog.breed}."
+        end
     when 6
       #Walker.owners
     when 7
