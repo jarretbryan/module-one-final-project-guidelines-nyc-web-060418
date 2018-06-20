@@ -1,7 +1,5 @@
 require 'tty-prompt'
 
-#prompt = TTY::Prompt.new
-
 def welcome
   puts <<-WELCOME
   WELCOME TO
