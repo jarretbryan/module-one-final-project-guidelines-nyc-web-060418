@@ -9,12 +9,24 @@ class Owner < ActiveRecord::Base
     Dog.create(name: name, breed: breed, size: size, owner_id: self.id)
   end
 
-  def view_dogs
+  def view_dog_instances
     Dog.all.select do |dog|
       dog.owner_id == self.id
-    end.map do |dog|
+    end
+  end
+
+  def view_dogs
+    view_dog_instances.map do |dog|
       dog.name
     end
+  end
+
+  def select_dog_for_walk(walker_instance)
+    choices = self.view_dog_instances.each_with_index.map do |dog, index|
+      {name: "#{index+1}. #{dog.name.ljust(30)} #{dog.size.ljust(10)} #{}", value: dog}
+    end
+    prompt = TTY::Prompt.new
+    prompt.select('Which dog?', choices)
   end
 
   def view_my_walkers
@@ -26,9 +38,12 @@ class Owner < ActiveRecord::Base
   end
 
   def look_for_walkers
-    Walker.take(5).each_with_index.map do |walker, index|
-      puts "#{index+1}. #{walker.name.ljust(20)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)}"
+    walker_array = Walker.take(5)
+    choices = walker_array.each_with_index.map do |walker, index|
+      {name: "#{index+1}. #{walker.name.ljust(20)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)}", value: walker}
     end
+    prompt = TTY::Prompt.new
+    prompt.select('Choose a walker:', choices)
   end
 
   def im_a_dog_walker
