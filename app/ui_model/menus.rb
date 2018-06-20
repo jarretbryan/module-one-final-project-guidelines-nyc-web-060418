@@ -25,7 +25,7 @@ def main_menu(acct_owner)
         main_menu(acct_owner)
       end
     when 5
-      p "congrats!"
+      acct_owner.become_walker
       break
     when 6
       p "Name: #{acct_owner.name}"
@@ -37,7 +37,7 @@ def main_menu(acct_owner)
   end
 end
 
-def walker_menu(acct_owner)
+def walker_menu(acct_walker)
   loop do
     case walker_menu_prompt
     when 1
@@ -55,7 +55,7 @@ def walker_menu(acct_owner)
     when 6
       #Walker.owners
     when 7
-      main_menu(acct_owner)
+      main_menu(acct_walker.owner)
     end
   end
 end

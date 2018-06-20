@@ -6,6 +6,7 @@ class CreateWalkers < ActiveRecord::Migration[5.0]
       t.integer :medium_dog_rate
       t.integer :large_dog_rate
       t.integer :rating
+      t.integer :owner_id
     end
   end
 end

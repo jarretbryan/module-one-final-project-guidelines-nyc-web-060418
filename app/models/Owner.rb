@@ -2,6 +2,7 @@ class Owner < ActiveRecord::Base
   has_many :dogs
   has_many :walks, through: :dogs
   has_many :walkers, through: :walks
+  has_one :walker
   # validates :username presence: true
 
   def add_dog(name:, breed:, size:)
@@ -41,6 +42,10 @@ class Owner < ActiveRecord::Base
     choices = self.view_dog_instances.each_with_index.map do |dog, index|
       {name: "#{index+1}. #{dog.name.ljust(15)} #{dog.size.ljust(10)} $#{dog.walk_cost(walker_instance)}", value: dog}
     end
+  end
+
+  def become_walker
+    Walker.find_or_create_by(name: self.name, owner_id: self.id)
   end
 
 end
