@@ -26,7 +26,7 @@ class Owner < ActiveRecord::Base
 
   def look_for_walkers
     Walker.take(5).each_with_index.map do |walker, index|
-      "#{index+1}. #{walker.name} - $#{walker.small_dog_rate} - $#{walker.small_dog_rate} - $#{walker.small_dog_rate}"
+      puts "#{index+1}. #{walker.name.ljust(20)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)} $#{walker.small_dog_rate.to_s.ljust(5)}"
     end
   end
 
