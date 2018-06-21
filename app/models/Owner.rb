@@ -30,7 +30,7 @@ class Owner < ActiveRecord::Base
 
   def view_my_walkers
     view_walks.each_with_index.map do |walk, index|
-      {name: "#{index+1}.  Walk Rating: #{walk.rating ? walk.rating.to_s.ljust(9) : "Not rated"} | #{walk.walk_time.strftime("%B %d, %Y")} - #{walk.walker.name} walked #{walk.dog.name}.", value: walk}
+      {name: "#{index+1}.  Walk Rating: #{walk.rating ? walk.rating.to_s.ljust(9) : "Not rated"} | #{walk.walk_time ? walk.walk_time.strftime("%B %d, %Y") : "N/A"} - #{walk.walker.name} walked #{walk.dog.name}.", value: walk}
     end
   end
 

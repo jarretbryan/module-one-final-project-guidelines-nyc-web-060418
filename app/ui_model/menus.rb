@@ -22,7 +22,7 @@ def main_menu(acct_owner)
           selected_walk.update(rating: rating)
           selected_walk.walker.rating_average
           puts "Thanks for using Woof Walker!"
-        end
+      end
     when 4
       has_dogs_check(acct_owner)
       selected_walker = walker_view_prompt(acct_owner.look_for_walkers)
