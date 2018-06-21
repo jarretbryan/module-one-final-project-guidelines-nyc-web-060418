@@ -35,7 +35,7 @@ class Owner < ActiveRecord::Base
   end
 
   def look_for_walkers
-    Walker.all.sample(10).each_with_index.map do |walker, index|
+    Walker.where("small_dog_rate is not null and medium_dog_rate is not null and large_dog_rate is not null").all.sample(10).each_with_index.map do |walker, index|
       {name: "#{(index+1).to_s.ljust(3)}. #{walker.name.ljust(30)} Rates - S: $#{walker.small_dog_rate.to_s.ljust(5)} M: $#{walker.medium_dog_rate.to_s.ljust(5)} L: $#{walker.large_dog_rate.to_s.ljust(15)} Rating: #{walker.rating ? walker.rating : "N/A"}", value: walker}
     end
   end
