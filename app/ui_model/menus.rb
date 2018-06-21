@@ -50,7 +50,7 @@ def walker_menu(acct_walker)
   loop do
     case walker_menu_prompt
     when 1
-      puts "Your rating is #{acct_walker.rating_average}."
+      puts "Your rating is #{acct_walker.display_rating}."
       puts "You charge $#{acct_walker.small_dog_rate} for small dogs."
       puts "You charge $#{acct_walker.medium_dog_rate} for medium dogs."
       puts "You charge $#{acct_walker.large_dog_rate} for large dogs."
