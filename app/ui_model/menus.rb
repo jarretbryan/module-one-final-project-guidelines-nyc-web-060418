@@ -3,6 +3,7 @@ def main_menu(acct_owner)
   loop do
     case owner_menu_prompt
     when 1
+      has_dogs_check(acct_owner)
       acct_owner.view_dog_instances.map do |dog|
         puts "#{dog.name} - a #{dog.size} #{dog.breed} and a good doggo!"
       end.join(", ")
