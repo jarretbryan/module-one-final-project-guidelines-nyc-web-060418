@@ -30,14 +30,14 @@ Woof Walker™ is a dog walking application that runs from your command line. Yo
 
 ## Installing
 1. Clone the repo down to your local machine
-2. from the folder, run $ bundle install
-3. run rake db:migrate and rake db:seed to populate the database.
-4. run ruby bin/run.rb to start the program! You can now start booking walks for your dogs!
+2. from the folder, run ```$ bundle install```
+3. run ```rake db:migrate``` and ```rake db:seed``` to populate the database.
+4. run ```ruby bin/run.rb``` to start the program! You can now start booking walks for your dogs!
 
 ## Login or Create a new user
 Once you open the app, your greeted with a warm welcome logo then prompt to select whether they are a new user or an existing user.
 ### New User
-To sign up, we'll need just two information. Create a valid username and enter your name.
+To sign up, we'll need just two pieces of information. Create a valid username and enter your name.
 No funny business though, because our state of the art validation system will check for invalid entries.
 ### Existing User
 If you've already signed up, then just enter your username and you're ready to book a Woof Walkers™.
