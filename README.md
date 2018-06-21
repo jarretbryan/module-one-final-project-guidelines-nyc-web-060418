@@ -1,49 +1,78 @@
-# Module One Final Project Guidelines
+# Woof Walker
 
-Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
+Woof Walker™ is a dog walking application that runs from your command line. You can create an account, add dogs to your account, and book walks for your dogs with our network of Woof Walkers™ based on rating and price. You can also sign in as a Walker and set your own prices.
 
-For your final project, we'll be building a Command Line database application.
+## Contents
+1. [Installing](##installing)
++ [Login or Create a new user](##login-or-create-a-new-user)
+  * [New User](###new-user)
+  * [Existing User](###existing-user)
++ [Navigating Main Menu](##navigating-main-menu)
+  * [View my dogs](###view-my-dogs)
+  * [Add a new dog](###add-a-new-dog)
+  * [View walk history](###add-a-new-dog)
+  * [Find a walker](###find-a-walker)
+  * [I'm a dog walker!](###i'm-a-dog-walker!)
+  * [View my personal info](###view-my-personal-info)
+  * [Logout](###logout)
++ [Navigating Dog Walker Menu](##navigating-dog-walker-menu)
+  * [View my rates](###view-my-rates)
+  * [Change my rate for small dogs](###change-my-rate-for-small-dogs)
+  * [Change my rate for medium dogs](###change-my-rate-for-medium-dogs)
+  * [Change my rate for large dogs](###change-my-rate-for-large-dogs)
+  * [See which dogs I've walked!](###see-which-dogs-i've-walked!)
+  * [See who I've worked for](###see-who-i've-worked-for)
++ [Contributing](##contributing)
++ [License](##license)
 
-## Project Requirements
 
-### Option One - Data Analytics Project
+## Installing
+1. Clone the repo down to your local machine
+2. from the folder, run $ bundle install
+3. run rake db:migrate and rake db:seed to populate the database.
+4. run ruby bin/run.rb to start the program! You can now start booking walks for your dogs!
 
-1. Access a Sqlite3 Database using ActiveRecord.
-2. You should have at minimum three models including one join model. This means you must have a many-to-many relationship.
-3. You should seed your database using data that you collect either from a CSV, a website by scraping, or an API.
-4. Your models should have methods that answer interesting questions about the data. For example, if you've collected info about movie reviews, what is the most popular movie? What movie has the most reviews?
-5. You should provide a CLI to display the return values of your interesting methods.  
-6. Use good OO design patterns. You should have separate classes for your models and CLI interface.
+## Login or Create a new user
+Once you open the app, your greeted with a warm welcome logo then prompt to select whether they are a new user or an existing user.
+### New User
+To sign up, we'll need just two information. Create a valid username and enter your name.
+No funny business though, because our state of the art validation system will check for invalid entries.
+### Existing User
+If you've already signed up, then just enter your username and you're ready to book a Woof Walkers™.
+## Navigating Main Menu
+Navigating through the main menu is very simple and intuitive, because we're great programmers, and largely due to the limited amount of selections available.
+### View my dogs
+In the "View my dogs" menu option, you can view all the dogs that are associated to your account.
+### Add a new dog
+This is where you'll add dogs to your account. We know you're wondering "how do I delete dogs?" Well, you can't because that's wrong. Plus, who would ever want to delete their dog?
+### View walk history
+In this menu option, you can view a full history of all the walks your pup has been on. If your pup loved a particular walk, you can view who the walker was and give them a 5 star rating!
+### Find a walker
+This is where you'll go if your doggos need to go on a nice walk. Our expansive network of fantastic Woof Walkers™ is ready to walk your furiends.
+### I'm a dog walker!
+Love walking dogs and want to make some extra $? Select here to sign up to be a Woof Walkers™. You can set your own rates, view all the walks you've been on, and also see who their doggy parents are.
+### View my personal info
+Forgot your name or username? Come here.
+### Logout
+This is where you login, but the opposite.
 
-### Option Two - Command Line CRUD App
+## Navigating Dog Walker
+Once you've signed up to become a Woof Walkers™, you'll have access to this walker menu.
+### View my rates
+Check what your current rating and walk rates are.
+### Change my rate
+Set your rate for walking small, medium, and large dogs.
+### See which dogs I've walked!
+View your furiends.
+### See who I've worked for
+View their pawrents.
 
-1. Access a Sqlite3 Database using ActiveRecord.
-2. You should have a minimum of three models.
-3. You should build out a CLI to give your user full CRUD ability for at least one of your resources. For example, build out a command line To-Do list. A user should be able to create a new to-do, see all todos, update a todo item, and delete a todo. Todos can be grouped into categories, so that a to-do has many categories and categories have many to-dos.
-4. Use good OO design patterns. You should have separate models for your runner and CLI interface.
+## Contributing
+1. Fork the repo
+2. Create your feature branch
+3. Commit your changes
+4. Push to branch
+5. Create new Pull Request
 
-### Brainstorming and Proposing a Project Idea
-
-Projects need to be approved prior to launching into them, so take some time to brainstorm project options that will fulfill the requirements above.  You must have a minimum of four [user stories](https://en.wikipedia.org/wiki/User_story) to help explain how a user will interact with your app.  A user story should follow the general structure of `"As a <role>, I want <goal/desire> so that <benefit>"`. In example, if we were creating an app to randomly choose nearby restaurants on Yelp, we might write:
-
-* As a user, I want to be able to enter my name to retrieve my records
-* As a user, I want to enter a location and be given a random nearby restaurant suggestion
-* As a user, I should be able to reject a suggestion and not see that restaurant suggestion again
-* As a user, I want to be able to save to and retrieve a list of favorite restaurant suggestions
-
-## Instructions
-
-1. Fork and clone this repository.
-2. Build your application. Make sure to commit early and commit often. Commit messages should be meaningful (clearly describe what you're doing in the commit) and accurate (there should be nothing in the commit that doesn't match the description in the commit message). Good rule of thumb is to commit every 3-7 mins of actual coding time. Most of your commits should have under 15 lines of code and a 2 line commit is perfectly acceptable.
-3. Make sure to create a good README.md with a short description, install instructions, a contributors guide and a link to the license for your code.
-4. Make sure your project checks off each of the above requirements.
-5. Prepare a video demo (narration helps!) describing how a user would interact with your working project.
-    * The video should:
-      - Have an overview of your project.(2 minutes max)
-6. Prepare a presentation to follow your video.(3 minutes max)
-    * Your presentation should:
-      - Describe something you struggled to build, and show us how you ultimately implemented it in your code.
-      - Discuss 3 things you learned in the process of working on this project.
-      - Address, if anything, what you would change or add to what you have today?
-      - Present any code you would like to highlight.   
-7. *OPTIONAL, BUT RECOMMENDED*: Write a blog post about the project and process.
+## License
+This code is free to use under the terms of the MIT license. See [LICENSE](../blob/master/LICENSE) for details.

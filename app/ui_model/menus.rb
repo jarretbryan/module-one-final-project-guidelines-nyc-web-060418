@@ -20,7 +20,7 @@ def main_menu(acct_owner)
           selected_walk.update(rating: rating)
           selected_walk.walker.rating_average
           puts "Thanks for using Woof Walker!"
-        end
+      end
     when 4
       selected_walker = walker_view_prompt(acct_owner.look_for_walkers)
       selected_dog = choose_dog_prompt(acct_owner.select_dog_for_walk(selected_walker))
@@ -52,7 +52,7 @@ def walker_menu(acct_walker)
     case walker_menu_prompt
     when 1
       # binding.pry
-      puts "#{acct_walker.rating_average}"
+      puts "#{acct_walker.display_rating}"
       puts "$#{acct_walker.small_dog_rate} for small dogs."
       puts "$#{acct_walker.medium_dog_rate} for medium dogs."
       puts "$#{acct_walker.large_dog_rate} for large dogs."
