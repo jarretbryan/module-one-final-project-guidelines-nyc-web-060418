@@ -30,15 +30,9 @@ class Walker < ActiveRecord::Base
   end
 
   def rating_average
-    # if self.rating == nil
-   #   self.rating = 5
-   #   "N/A"
-   # else
-   if self.rating == nil
-     "No rating"
-   else
+  
      avg = ((self.sum_ratings)/(self.list_of_ratings.length).to_f).round(2)
      self.update(rating: avg)
-   end
+
   end
 end
