@@ -124,3 +124,9 @@ def walk_rating_prompt
     menu.choice "Not now", 6
   end
 end
+
+def log_out_prompt
+  prompt = TTY::Prompt.new
+  options = ["Switch Users", "Quit"]
+  prompt.select("Would you like to switch user or quit program?", options)
+end

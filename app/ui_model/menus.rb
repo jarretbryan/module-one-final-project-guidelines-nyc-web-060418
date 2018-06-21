@@ -44,8 +44,11 @@ def main_menu(acct_owner)
       puts "Name: #{acct_owner.name}"
       puts "Username: #{acct_owner.username}"
     when 7
-      puts "Goodbye!"
-      exit
+      if log_out_prompt == "Quit"
+        exit
+      else
+        runner
+      end
     end
   end
 end
