@@ -38,8 +38,8 @@ def main_menu(acct_owner)
         main_menu(acct_owner)
       end
     when 5
-      acct_owner.become_walker
-      break
+      acct_walker = acct_owner.become_walker
+      walker_menu(acct_walker)
     when 6
       puts "Name: #{acct_owner.name}"
       puts "Username: #{acct_owner.username}"

@@ -23,6 +23,6 @@ def runner
   end
   #owner_menu_prompt
   main_menu(acct_owner)
-  walker_menu(acct_owner.walker)
+  #walker_menu(acct_owner.walker)
 
 end
