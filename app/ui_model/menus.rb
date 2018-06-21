@@ -13,6 +13,8 @@ def main_menu(acct_owner)
       dog = acct_owner.add_dog(name: dog_name, breed: breed, size: size)
       puts dog.name
     when 3
+      has_dogs_check(acct_owner)
+      has_walks_check(acct_owner)
       selected_walk = choose_walk_prompt(acct_owner.view_my_walkers)
       rating = walk_rating_prompt
       if rating < 6
@@ -21,6 +23,7 @@ def main_menu(acct_owner)
           puts "Thanks for using Woof Walker!"
         end
     when 4
+      has_dogs_check(acct_owner)
       selected_walker = walker_view_prompt(acct_owner.look_for_walkers)
       selected_dog = choose_dog_prompt(acct_owner.select_dog_for_walk(selected_walker))
       if book_walk_prompt == "Yes"

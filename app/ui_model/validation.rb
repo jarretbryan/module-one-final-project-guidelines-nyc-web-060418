@@ -34,3 +34,17 @@ rescue ArgumentError
   puts "Please enter a valid date MM/DD/YY"
   date = nil
 end
+
+def has_dogs_check(acct_owner)
+  if acct_owner.view_dog_instances.length == 0
+    puts "But you have no dogs!"
+    main_menu(acct_owner)
+  end
+end
+
+def has_walks_check(acct_owner)
+  if acct_owner.view_walks.length == 0
+    puts "But you haven't booked a walk yet! Plase book one with one of our many great Woof Walkers!!!"
+    main_menu(acct_owner)
+  end
+end
