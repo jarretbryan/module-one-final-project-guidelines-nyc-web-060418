@@ -2,8 +2,10 @@
 
 Woof Walker™ is a dog walking application that runs from your command line. You can create an account, add dogs to your account, and book walks for your dogs with our network of Woof Walkers™ based on rating and price. You can also sign in as a Walker and set your own prices.
 
+[Link to Short Demo](https://youtu.be/T0UKx9C8ECU)
+
 ## Contents
-1. [Installing](##installing)
++ [Installing](##installing)
 + [Login or Create a new user](##login-or-create-a-new-user)
   * [New User](###new-user)
   * [Existing User](###existing-user)
