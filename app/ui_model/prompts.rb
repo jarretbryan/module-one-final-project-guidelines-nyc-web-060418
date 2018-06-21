@@ -39,7 +39,7 @@ def owner_menu_prompt
   prompt.select('What would you like to do?') do |menu|
     menu.choice "View my dogs", 1
     menu.choice "Add a new dog", 2
-    menu.choice "View my walkers", 3
+    menu.choice "View walk history", 3
     menu.choice "Find a walker", 4
     menu.choice "I'm a dog walker!", 5
     menu.choice "View my Personal Info", 6
@@ -106,4 +106,21 @@ end
 def book_walk_date_prompt
   prompt = TTY::Prompt.new
   prompt.ask("When do you want to book this walk? Please enter date MM/DD/YYYY:")
+end
+
+def choose_walk_prompt(walk_arr)
+  prompt = TTY::Prompt.new
+  prompt.select('Walk history:', walk_arr)
+end
+
+def walk_rating_prompt
+  prompt = TTY::Prompt.new
+  prompt.select('How would you rate this walk?') do |menu|
+    menu.choice "★ ★ ★ ★ ★ ", 5
+    menu.choice "★ ★ ★ ★ ", 4
+    menu.choice "★ ★ ★ ", 3
+    menu.choice "★ ★ ", 2
+    menu.choice "★ ", 1
+    menu.choice "Not now", 6
+  end
 end

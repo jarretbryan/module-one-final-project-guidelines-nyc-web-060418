@@ -1,4 +1,3 @@
-require 'date'
 
 def main_menu(acct_owner)
   loop do
@@ -15,7 +14,13 @@ def main_menu(acct_owner)
       dog = acct_owner.add_dog(name: dog_name, breed: breed, size: size)
       puts dog.name
     when 3
-      p acct_owner.view_my_walkers.join(", ")
+      selected_walk = choose_walk_prompt(acct_owner.view_my_walkers)
+      rating = walk_rating_prompt
+      if rating < 6
+          selected_walk.update(rating: rating)
+          selected_walk.walker.rating_average
+          puts "Thanks for using Woof Walker!"
+        end
     when 4
       selected_walker = walker_view_prompt(acct_owner.look_for_walkers)
       selected_dog = choose_dog_prompt(acct_owner.select_dog_for_walk(selected_walker))

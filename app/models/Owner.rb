@@ -20,18 +20,23 @@ class Owner < ActiveRecord::Base
     end
   end
 
-  def view_my_walkers
-    self.view_dog_instances.map do |dog|
-      dog.walkers.map do |dogg|
-        dogg.name
+  def view_walks
+    view_walks = view_dog_instances.map do |dog|
+      dog.walks.map do |walk|
+        walk
       end
-    end.flatten.uniq
+    end.flatten
+  end
+
+  def view_my_walkers
+    view_walks.each_with_index.map do |walk, index|
+      {name: "#{index+1}.  Walk Rating: #{walk.rating ? walk.rating.to_s.ljust(9) : "Not rated"} | #{walk.walk_time.strftime("%B %d, %Y")} - #{walk.walker.name} walked #{walk.dog.name}.", value: walk}
+    end
   end
 
   def look_for_walkers
-    walker_array = Walker.all.sample(5)
-    choices = walker_array.each_with_index.map do |walker, index|
-      {name: "#{index+1}. #{walker.name.ljust(30)} Rates - S: $#{walker.small_dog_rate.to_s.ljust(5)} M: $#{walker.medium_dog_rate.to_s.ljust(5)} L: $#{walker.large_dog_rate.to_s.ljust(5)}", value: walker}
+    Walker.all.sample(10).each_with_index.map do |walker, index|
+      {name: "#{(index+1).to_s.ljust(3)}. #{walker.name.ljust(30)} Rates - S: $#{walker.small_dog_rate.to_s.ljust(5)} M: $#{walker.medium_dog_rate.to_s.ljust(5)} L: $#{walker.large_dog_rate.to_s.ljust(15)} Rating: #{walker.rating ? walker.rating : "N/A"}", value: walker}
     end
   end
 

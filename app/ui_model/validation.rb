@@ -1,4 +1,3 @@
-require 'date'
 
 def is_username_valid?(username)
   if Owner.find_by(username: username)
