@@ -73,7 +73,7 @@ end
 def walker_menu_prompt
   prompt = TTY::Prompt.new
   prompt.select('What would you like to do?') do |menu|
-    menu.choice "View my rates", 1
+    menu.choice "View my Walker Information", 1
     menu.choice "Change my rate for small dogs", 2
     menu.choice "Change my rate for medium dogs", 3
     menu.choice "Change my rate for large dogs", 4
