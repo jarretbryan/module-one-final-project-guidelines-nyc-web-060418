@@ -12,7 +12,7 @@ def main_menu(acct_owner)
       breed = is_this_blank?(dog_breed_prompt)
       size = dog_size_prompt
       dog = acct_owner.add_dog(name: dog_name, breed: breed, size: size)
-      puts dog.name
+      puts "#{dog.name} is a #{dog.size} #{dog.breed} and such a good doggo!"
     when 3
       has_dogs_check(acct_owner)
       has_walks_check(acct_owner)

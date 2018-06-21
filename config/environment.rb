@@ -2,8 +2,8 @@ require 'bundler'
 Bundler.require
 #binding.pry
 
- # standard = ActiveRecord::Base.logger
- # ActiveRecord::Base.logger = nil
+  standard = ActiveRecord::Base.logger
+  ActiveRecord::Base.logger = nil
 
 ActiveRecord::Base.establish_connection(
   adapter: 'sqlite3',
