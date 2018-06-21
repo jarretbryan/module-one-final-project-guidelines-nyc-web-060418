@@ -51,9 +51,11 @@ def walker_menu(acct_walker)
   loop do
     case walker_menu_prompt
     when 1
-      p "$#{acct_walker.small_dog_rate} for small dogs."
-      p "$#{acct_walker.medium_dog_rate} for medium dogs."
-      p "$#{acct_walker.large_dog_rate} for large dogs."
+      # binding.pry
+      puts "#{acct_walker.rating_average}"
+      puts "$#{acct_walker.small_dog_rate} for small dogs."
+      puts "$#{acct_walker.medium_dog_rate} for medium dogs."
+      puts "$#{acct_walker.large_dog_rate} for large dogs."
     when 2
       #acct_walker.small_dog_rate = rate_change_prompt
       acct_walker.update(small_dog_rate: rate_change_prompt)
