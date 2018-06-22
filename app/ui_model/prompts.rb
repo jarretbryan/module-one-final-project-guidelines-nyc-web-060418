@@ -1,5 +1,7 @@
 require 'tty-prompt'
 
+@prompt = TTY::Prompt.new
+
 def welcome
   puts <<-WELCOME
   WELCOME TO
@@ -19,24 +21,24 @@ def welcome
 end
 
 def new_or_old_prompt
-  prompt = TTY::Prompt.new
-  prompt.select("Are you a new user?", %w(Yes No))
+  #prompt = TTY::Prompt.new
+  @prompt.select("Are you a new user?", %w(Yes No))
 end
 
 def is_e_user_prompt
-  prompt = TTY::Prompt.new
-  prompt.ask("Please enter your username")
+  #prompt = TTY::Prompt.new
+  @prompt.ask("Please enter your username")
   #error message raise?
 end
 
 def create_account_prompt
-  prompt = TTY::Prompt.new
-  prompt.ask("What is your name?")
+  #prompt = TTY::Prompt.new
+  @prompt.ask("What is your name?")
 end
 
 def owner_menu_prompt
-  prompt = TTY::Prompt.new
-  prompt.select('What would you like to do?') do |menu|
+  #prompt = TTY::Prompt.new
+  @prompt.select('What would you like to do?') do |menu|
     menu.choice "View my dogs", 1
     menu.choice "Add a new dog", 2
     menu.choice "View walk history", 3
@@ -48,31 +50,31 @@ def owner_menu_prompt
 end
 
 def dog_name_prompt
-  prompt = TTY::Prompt.new
-  prompt.ask("What is your dog's name?")
+  #prompt = TTY::Prompt.new
+  @prompt.ask("What is your dog's name?")
   #error message raise?
 end
 
 def dog_breed_prompt
-  prompt = TTY::Prompt.new
-  prompt.ask("What is your dog's breed?")
+  #prompt = TTY::Prompt.new
+  @prompt.ask("What is your dog's breed?")
   #error message raise?
 end
 
 def dog_size_prompt
-  prompt = TTY::Prompt.new
-  prompt.select("How big is your dog?", %w(Small Medium Large))
+  #prompt = TTY::Prompt.new
+  @prompt.select("How big is your dog?", %w(Small Medium Large))
   #error message raise?
 end
 
 def username_prompt
-  prompt = TTY::Prompt.new
-  prompt.ask("Please Enter a username:")
+  #prompt = TTY::Prompt.new
+  @prompt.ask("Please Enter a username:")
 end
 
 def walker_menu_prompt
-  prompt = TTY::Prompt.new
-  prompt.select('What would you like to do?') do |menu|
+  #prompt = TTY::Prompt.new
+  @prompt.select('What would you like to do?') do |menu|
     menu.choice "View my Walker Information", 1
     menu.choice "Change my rate for small dogs", 2
     menu.choice "Change my rate for medium dogs", 3
@@ -84,38 +86,38 @@ def walker_menu_prompt
 end
 
 def rate_change_prompt
-  prompt = TTY::Prompt.new
-  prompt.ask("What would you like the new rate to be?")
+  #prompt = TTY::Prompt.new
+  @prompt.ask("What would you like the new rate to be?")
 end
 
 def walker_view_prompt(walk_arr)
-  prompt = TTY::Prompt.new
-  prompt.select('Choose a walker!', walk_arr)
+  #prompt = TTY::Prompt.new
+  @prompt.select('Choose a walker!', walk_arr)
 end
 
 def choose_dog_prompt(dog_arr)
-  prompt = TTY::Prompt.new
-  prompt.select('Choose a dog!', dog_arr)
+  #prompt = TTY::Prompt.new
+  @prompt.select('Choose a dog!', dog_arr)
 end
 
 def book_walk_prompt
-  prompt = TTY::Prompt.new
-  prompt.select("Do you want to book this walk?", %w(Yes No))
+  #prompt = TTY::Prompt.new
+  @prompt.select("Do you want to book this walk?", %w(Yes No))
 end
 
 def book_walk_date_prompt
-  prompt = TTY::Prompt.new
-  prompt.ask("When do you want to book this walk? Please enter date MM/DD/YYYY:")
+  #prompt = TTY::Prompt.new
+  @prompt.ask("When do you want to book this walk? Please enter date MM/DD/YYYY:")
 end
 
 def choose_walk_prompt(walk_arr)
-  prompt = TTY::Prompt.new
-  prompt.select('Walk history:', walk_arr)
+  #prompt = TTY::Prompt.new
+  @prompt.select('Walk history:', walk_arr)
 end
 
 def walk_rating_prompt
-  prompt = TTY::Prompt.new
-  prompt.select('How would you rate this walk?') do |menu|
+  #prompt = TTY::Prompt.new
+  @prompt.select('How would you rate this walk?') do |menu|
     menu.choice "★ ★ ★ ★ ★ ", 5
     menu.choice "★ ★ ★ ★ ", 4
     menu.choice "★ ★ ★ ", 3
@@ -126,7 +128,7 @@ def walk_rating_prompt
 end
 
 def log_out_prompt
-  prompt = TTY::Prompt.new
+  #prompt = TTY::Prompt.new
   options = ["Switch Users", "Quit"]
-  prompt.select("Would you like to switch user or quit program?", options)
+  @prompt.select("Would you like to switch user or quit program?", options)
 end
